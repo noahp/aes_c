@@ -10,21 +10,21 @@
 #include <string.h> // memcpy()
 
 // Here are all the lookup tables for the row shifts, rcon, s-boxes, and galois field multiplications
-const char shift_rows_table[] = {
+const unsigned char shift_rows_table[] = {
     0,5,10,15,4,9,14,3,
     8,13,2,7,12,1,6,11
 };
 
-const char shift_rows_table_inv[] = {
+const unsigned char shift_rows_table_inv[] = {
     0,13,10,7,4,1,14,11,
     8,5,2,15,12,9,6,3
 };
 
-const char lookup_rcon[] = {
+const unsigned char lookup_rcon[] = {
     0x8d,0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x1b,0x36,0x6c,0xd8,0xab,0x4d,0x9a
 };
 
-const char lookup_sbox[] = {
+const unsigned char lookup_sbox[] = {
     0x63,0x7c,0x77,0x7b,0xf2,0x6b,0x6f,0xc5,0x30,0x01,0x67,0x2b,0xfe,0xd7,0xab,0x76,
     0xca,0x82,0xc9,0x7d,0xfa,0x59,0x47,0xf0,0xad,0xd4,0xa2,0xaf,0x9c,0xa4,0x72,0xc0,
     0xb7,0xfd,0x93,0x26,0x36,0x3f,0xf7,0xcc,0x34,0xa5,0xe5,0xf1,0x71,0xd8,0x31,0x15,
@@ -43,7 +43,7 @@ const char lookup_sbox[] = {
     0x8c,0xa1,0x89,0x0d,0xbf,0xe6,0x42,0x68,0x41,0x99,0x2d,0x0f,0xb0,0x54,0xbb,0x16
 };
 
-const char lookup_sbox_inv[] = {
+const unsigned char lookup_sbox_inv[] = {
     0x52,0x09,0x6a,0xd5,0x30,0x36,0xa5,0x38,0xbf,0x40,0xa3,0x9e,0x81,0xf3,0xd7,0xfb,
     0x7c,0xe3,0x39,0x82,0x9b,0x2f,0xff,0x87,0x34,0x8e,0x43,0x44,0xc4,0xde,0xe9,0xcb,
     0x54,0x7b,0x94,0x32,0xa6,0xc2,0x23,0x3d,0xee,0x4c,0x95,0x0b,0x42,0xfa,0xc3,0x4e,
@@ -62,7 +62,7 @@ const char lookup_sbox_inv[] = {
     0x17,0x2b,0x04,0x7e,0xba,0x77,0xd6,0x26,0xe1,0x69,0x14,0x63,0x55,0x21,0x0c,0x7d
 };
 
-const char lookup_g2[] = {
+const unsigned char lookup_g2[] = {
     0x00,0x02,0x04,0x06,0x08,0x0a,0x0c,0x0e,0x10,0x12,0x14,0x16,0x18,0x1a,0x1c,0x1e,
     0x20,0x22,0x24,0x26,0x28,0x2a,0x2c,0x2e,0x30,0x32,0x34,0x36,0x38,0x3a,0x3c,0x3e,
     0x40,0x42,0x44,0x46,0x48,0x4a,0x4c,0x4e,0x50,0x52,0x54,0x56,0x58,0x5a,0x5c,0x5e,
@@ -81,7 +81,7 @@ const char lookup_g2[] = {
     0xfb,0xf9,0xff,0xfd,0xf3,0xf1,0xf7,0xf5,0xeb,0xe9,0xef,0xed,0xe3,0xe1,0xe7,0xe5
 };
 
-const char lookup_g3[] = {
+const unsigned char lookup_g3[] = {
     0x00,0x03,0x06,0x05,0x0c,0x0f,0x0a,0x09,0x18,0x1b,0x1e,0x1d,0x14,0x17,0x12,0x11,
     0x30,0x33,0x36,0x35,0x3c,0x3f,0x3a,0x39,0x28,0x2b,0x2e,0x2d,0x24,0x27,0x22,0x21,
     0x60,0x63,0x66,0x65,0x6c,0x6f,0x6a,0x69,0x78,0x7b,0x7e,0x7d,0x74,0x77,0x72,0x71,
@@ -100,7 +100,7 @@ const char lookup_g3[] = {
     0x0b,0x08,0x0d,0x0e,0x07,0x04,0x01,0x02,0x13,0x10,0x15,0x16,0x1f,0x1c,0x19,0x1a
 };
 
-const char lookup_g9[] = {
+const unsigned char lookup_g9[] = {
     0x00,0x09,0x12,0x1b,0x24,0x2d,0x36,0x3f,0x48,0x41,0x5a,0x53,0x6c,0x65,0x7e,0x77,
     0x90,0x99,0x82,0x8b,0xb4,0xbd,0xa6,0xaf,0xd8,0xd1,0xca,0xc3,0xfc,0xf5,0xee,0xe7,
     0x3b,0x32,0x29,0x20,0x1f,0x16,0x0d,0x04,0x73,0x7a,0x61,0x68,0x57,0x5e,0x45,0x4c,
@@ -119,7 +119,7 @@ const char lookup_g9[] = {
     0x31,0x38,0x23,0x2a,0x15,0x1c,0x07,0x0e,0x79,0x70,0x6b,0x62,0x5d,0x54,0x4f,0x46
 };
 
-const char lookup_g11[] = {
+const unsigned char lookup_g11[] = {
     0x00,0x0b,0x16,0x1d,0x2c,0x27,0x3a,0x31,0x58,0x53,0x4e,0x45,0x74,0x7f,0x62,0x69,
     0xb0,0xbb,0xa6,0xad,0x9c,0x97,0x8a,0x81,0xe8,0xe3,0xfe,0xf5,0xc4,0xcf,0xd2,0xd9,
     0x7b,0x70,0x6d,0x66,0x57,0x5c,0x41,0x4a,0x23,0x28,0x35,0x3e,0x0f,0x04,0x19,0x12,
@@ -138,7 +138,7 @@ const char lookup_g11[] = {
     0xca,0xc1,0xdc,0xd7,0xe6,0xed,0xf0,0xfb,0x92,0x99,0x84,0x8f,0xbe,0xb5,0xa8,0xa3
 };
 
-const char lookup_g13[] = {
+const unsigned char lookup_g13[] = {
     0x00,0x0d,0x1a,0x17,0x34,0x39,0x2e,0x23,0x68,0x65,0x72,0x7f,0x5c,0x51,0x46,0x4b,
     0xd0,0xdd,0xca,0xc7,0xe4,0xe9,0xfe,0xf3,0xb8,0xb5,0xa2,0xaf,0x8c,0x81,0x96,0x9b,
     0xbb,0xb6,0xa1,0xac,0x8f,0x82,0x95,0x98,0xd3,0xde,0xc9,0xc4,0xe7,0xea,0xfd,0xf0,
@@ -157,7 +157,7 @@ const char lookup_g13[] = {
     0xdc,0xd1,0xc6,0xcb,0xe8,0xe5,0xf2,0xff,0xb4,0xb9,0xae,0xa3,0x80,0x8d,0x9a,0x97
 };
 
-const char lookup_g14[] = {
+const unsigned char lookup_g14[] = {
     0x00,0x0e,0x1c,0x12,0x38,0x36,0x24,0x2a,0x70,0x7e,0x6c,0x62,0x48,0x46,0x54,0x5a,
     0xe0,0xee,0xfc,0xf2,0xd8,0xd6,0xc4,0xca,0x90,0x9e,0x8c,0x82,0xa8,0xa6,0xb4,0xba,
     0xdb,0xd5,0xc7,0xc9,0xe3,0xed,0xff,0xf1,0xab,0xa5,0xb7,0xb9,0x93,0x9d,0x8f,0x81,
@@ -176,26 +176,26 @@ const char lookup_g14[] = {
     0xd7,0xd9,0xcb,0xc5,0xef,0xe1,0xf3,0xfd,0xa7,0xa9,0xbb,0xb5,0x9f,0x91,0x83,0x8d
 };
 
-// Xor's all elements in a n char array a by b
-void xor_(char *a, char *b, int n) {
+// Xor's all elements in a n unsigned char array a by b
+void xor_(unsigned char *a, unsigned char *b, int n) {
   int i;
   for (i=0;i<n;i++)
     a[i] ^= b[i];
 }
 
 // Xor the current cipher state by a specific round key
-static void xor_round_key(char *state, char *keys, int round) {
+static void xor_round_key(unsigned char *state, unsigned char *keys, int round) {
   xor_(state,keys+round*16,16);
 }
 
 // Apply and reverse the rijndael s-box to all elements in an array
 // http://en.wikipedia.org/wiki/Rijndael_S-box
-static void sub_bytes(char *a,int n) {
+static void sub_bytes(unsigned char *a,int n) {
   int i;
   for (i=0;i<n;i++)
     a[i] = lookup_sbox[a[i]];
 }
-static void sub_bytes_inv(char *a,int n) {
+static void sub_bytes_inv(unsigned char *a,int n) {
   int i;
   for (i=0;i<n;i++)
     a[i] = lookup_sbox_inv[a[i]];
@@ -203,56 +203,56 @@ static void sub_bytes_inv(char *a,int n) {
 
 // Perform the core key schedule transform on 4 bytes, as part of the key expansion process
 // http://en.wikipedia.org/wiki/Rijndael_key_schedule#Key_schedule_core
-static void key_schedule_core(char *a, int i) {
-  char temp = a[0];     // Rotate the output eight bits to the left
+static void key_schedule_core(unsigned char *a, int i) {
+  unsigned char temp = a[0];     // Rotate the output eight bits to the left
   a[0]=a[1];
   a[1]=a[2];
   a[2]=a[3];
   a[3]=temp;
   sub_bytes(a,4);       // Apply Rijndael's S-box on all four individual bytes in the output word
-  a[0]^=lookup_rcon[i]; // On just the first (leftmost) char of the output word, perform the rcon operation with i
-                        // as the input, and exclusive or the rcon output with the first char of the output word
+  a[0]^=lookup_rcon[i]; // On just the first (leftmost) unsigned char of the output word, perform the rcon operation with i
+                        // as the input, and exclusive or the rcon output with the first unsigned char of the output word
 }
 
-// Expand the 16-char key to 11 round keys (176 bytes)
+// Expand the 16-unsigned char key to 11 round keys (176 bytes)
 // http://en.wikipedia.org/wiki/Rijndael_key_schedule#The_key_schedule
-static void expand_key(char *key, char *keys) {
+static void expand_key(unsigned char *key, unsigned char *keys) {
   int bytes=16;             // The count of how many bytes we've created so far
   int i=1;                  // The rcon iteration value i is set to 1
   int j;                    // For repeating the second stage 3 times
-  char t[4];                // Temporary working area known as 't' in the Wiki article
+  unsigned char t[4];                // Temporary working area known as 't' in the Wiki article
   memcpy(keys,key,16);      // The first 16 bytes of the expanded key are simply the encryption key
 
   while (bytes<176) {       // Until we have 176 bytes of expanded key, we do the following:
     memcpy(t,keys+bytes-4,4);          // We assign the value of the previous four bytes in the expanded key to t
     key_schedule_core(t, i);           // We perform the key schedule core on t, with i as the rcon iteration value
     i++;                               // We increment i by 1
-    xor_(t,keys+bytes-16,4);            // We exclusive-or t with the four-char block 16 bytes before the new expanded key.
+    xor_(t,keys+bytes-16,4);            // We exclusive-or t with the four-unsigned char block 16 bytes before the new expanded key.
     memcpy(keys+bytes,t,4);            // This becomes the next 4 bytes in the expanded key
     bytes+=4;                          // Keep track of how many expanded key bytes we've added
 
     // We then do the following three times to create the next twelve bytes
     for (j=0;j<3;j++) {
       memcpy(t,keys+bytes-4,4);          // We assign the value of the previous 4 bytes in the expanded key to t
-      xor_(t,keys+bytes-16,4);            // We exclusive-or t with the four-char block n bytes before
+      xor_(t,keys+bytes-16,4);            // We exclusive-or t with the four-unsigned char block n bytes before
       memcpy(keys+bytes,t,4);            // This becomes the next 4 bytes in the expanded key
       bytes+=4;                          // Keep track of how many expanded key bytes we've added
     }
   }
 }
 
-// Apply / reverse the shift rows step on the 16 char cipher state
+// Apply / reverse the shift rows step on the 16 unsigned char cipher state
 // http://en.wikipedia.org/wiki/Advanced_Encryption_Standard#The_ShiftRows_step
-static void shift_rows(char *state) {
+static void shift_rows(unsigned char *state) {
   int i;
-  char temp[16];
+  unsigned char temp[16];
   memcpy(temp,state,16);
   for (i=0;i<16;i++)
     state[i]=temp[shift_rows_table[i]];
 }
-static void shift_rows_inv(char *state) {
+static void shift_rows_inv(unsigned char *state) {
   int i;
-  char temp[16];
+  unsigned char temp[16];
   memcpy(temp,state,16);
   for (i=0;i<16;i++)
     state[i]=temp[shift_rows_table_inv[i]];
@@ -260,11 +260,11 @@ static void shift_rows_inv(char *state) {
 
 // Perform the mix columns matrix on one column of 4 bytes
 // http://en.wikipedia.org/wiki/Rijndael_mix_columns
-static void mix_col (char *state) {
-  char a0 = state[0];
-  char a1 = state[1];
-  char a2 = state[2];
-  char a3 = state[3];
+static void mix_col (unsigned char *state) {
+  unsigned char a0 = state[0];
+  unsigned char a1 = state[1];
+  unsigned char a2 = state[2];
+  unsigned char a3 = state[3];
   state[0] = lookup_g2[a0] ^ lookup_g3[a1] ^ a2 ^ a3;
   state[1] = lookup_g2[a1] ^ lookup_g3[a2] ^ a3 ^ a0;
   state[2] = lookup_g2[a2] ^ lookup_g3[a3] ^ a0 ^ a1;
@@ -272,7 +272,7 @@ static void mix_col (char *state) {
 }
 
 // Perform the mix columns matrix on each column of the 16 bytes
-static void mix_cols (char *state) {
+static void mix_cols (unsigned char *state) {
   mix_col(state);
   mix_col(state+4);
   mix_col(state+8);
@@ -281,11 +281,11 @@ static void mix_cols (char *state) {
 
 // Perform the inverse mix columns matrix on one column of 4 bytes
 // http://en.wikipedia.org/wiki/Rijndael_mix_columns
-static void mix_col_inv (char *state) {
-  char a0 = state[0];
-  char a1 = state[1];
-  char a2 = state[2];
-  char a3 = state[3];
+static void mix_col_inv (unsigned char *state) {
+  unsigned char a0 = state[0];
+  unsigned char a1 = state[1];
+  unsigned char a2 = state[2];
+  unsigned char a3 = state[3];
   state[0] = lookup_g14[a0] ^ lookup_g9[a3] ^ lookup_g13[a2] ^ lookup_g11[a1];
   state[1] = lookup_g14[a1] ^ lookup_g9[a0] ^ lookup_g13[a3] ^ lookup_g11[a2];
   state[2] = lookup_g14[a2] ^ lookup_g9[a1] ^ lookup_g13[a0] ^ lookup_g11[a3];
@@ -293,7 +293,7 @@ static void mix_col_inv (char *state) {
 }
 
 // Perform the inverse mix columns matrix on each column of the 16 bytes
-static void mix_cols_inv (char *state) {
+static void mix_cols_inv (unsigned char *state) {
   mix_col_inv(state);
   mix_col_inv(state+4);
   mix_col_inv(state+8);
@@ -302,11 +302,11 @@ static void mix_cols_inv (char *state) {
 
 // Encrypt a single 128 bit block by a 128 bit key using AES
 // http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
-void AES_Encrypt(char *data, char *key) {
+void AES_Encrypt(unsigned char *data, unsigned char *key) {
   int i; // To count the rounds
 
   // Key expansion
-  char keys[176];
+  unsigned char keys[176];
   expand_key(key,keys);
 
   // First Round
@@ -328,11 +328,11 @@ void AES_Encrypt(char *data, char *key) {
 
 // Decrypt a single 128 bit block by a 128 bit key using AES
 // http://en.wikipedia.org/wiki/Advanced_Encryption_Standard
-void AES_Decrypt(char *data, char *key) {
+void AES_Decrypt(unsigned char *data, unsigned char *key) {
   int i; // To count the rounds
 
   // Key expansion
-  char keys[176];
+  unsigned char keys[176];
   expand_key(key,keys);
 
   // Reverse the final Round
