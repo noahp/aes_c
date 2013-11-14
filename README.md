@@ -9,3 +9,6 @@ Compiles to about 3k (ROM) on Cortex-M4, due to lookup tables.
 No promises on performance, but it does work.
 
 Public domain, use and abuse as you like.
+
+TODO: take a look at the following. It should be about 1.5k-2k less due to fewer lookup tables.  
+http://ccodeblog.wordpress.com/2012/05/25/aes-implementation-in-300-lines-of-code/
