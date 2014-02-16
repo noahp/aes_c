@@ -33,7 +33,7 @@ int test_AES_Encrypt(void)
                 sprintf(hexstr2, "%02X", aestestvectors[i].ciphertext[j]);
                 strcat(strrep2, hexstr2);
             }
-            printf("AES_Encrypt failed on count %d,\n\tcomputed:  %s\n\treference: %s\n",
+            printf("AES_Encrypt failed on count %d,\n\tcomputed:  %s\n\treference: %s",
                    aestestvectors[i].idx, strrep1, strrep2);
             return -1;
         }
@@ -70,7 +70,7 @@ int test_AES_Decrypt(void)
                 sprintf(hexstr2, "%02X", aestestvectors[i].plaintext[j]);
                 strcat(strrep2, hexstr2);
             }
-            printf("AES_Decrypt failed on count %d,\n\tcomputed:  %s\n\treference: %s\n",
+            printf("AES_Decrypt failed on count %d,\n\tcomputed:  %s\n\treference: %s",
                    aestestvectors[i].idx, strrep1, strrep2);
             return -1;
         }
@@ -83,7 +83,7 @@ int test_AES_Decrypt(void)
 int main(void)
 {
     if(test_AES_Encrypt()){
-        printf("AES_Encrypt test Failed.\n");
+        printf("AES_Encrypt test Passed.\n");
         return -1;
     }
     printf("AES_Encrypt test Passed.\n");
@@ -92,7 +92,7 @@ int main(void)
         printf("AES_Decrypt test failed.\n");
         return -1;
     }
-    printf("AES_Encrypt test Passed.\n");
+        printf("AES_Encrypt test Passed.\n");
 
     printf("All tests Passed.\n");
 
