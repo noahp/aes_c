@@ -1,3 +1,6 @@
+[edit] I suggest this as an alternative, it's a little better-  
+https://github.com/kokke/tiny-AES128-C
+
 aes_c
 =====
 Simple c code for aes-128 ECB.
